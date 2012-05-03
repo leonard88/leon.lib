@@ -13,13 +13,14 @@
     if (($handle = opendir('.'))) {
         while (false !== ($entry = readdir($handle))) {
             if ($entry != "." && $entry != ".." && substr($entry, 0, 7) == 'example') {
-                if ($examples == DEFAULT_MSG) $examples = "";
+                if ($examples == DEFAULT_MSG) $examples = "<ul>\n";
                 $NO = (int) substr($entry, 7, strlen($entry) - 3);
                 $examples .= "<li><a href=\"$entry\">Example $NO</a></li>\n";
             }
         }
         closedir($handle);
     }
+    if ($examples != DEFAULT_MSG) $examples .= "</ul>";
 
 ?>
 <!DOCTYPE html>
@@ -29,8 +30,6 @@
     </head>
     <body>
         <h1>Examples</h1>
-        <ul>
-            <?= $examples ?>
-        </ul>
+        <?= $examples ?>
     </body>
 </html>
