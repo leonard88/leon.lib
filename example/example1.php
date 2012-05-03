@@ -6,4 +6,6 @@
  * 
  * File to show examples about using leon.lib.
  */
+
+    echo 'Hello World!';
 ?>
