@@ -4,7 +4,7 @@
  * created on 2012.05.03.
  * @author leon
  * Lists the available examples.
- * This file will use leon.lib NEVER. 
+ * This file will NEVER use leon.lib. 
  */
     define('DEFAULT_MSG', 'There are no available examples!');
     
