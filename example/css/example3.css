@@ -1,0 +1,27 @@
+/* 
+    Document   : example3.css
+    Created on : 2012.05.05., 17:20:20
+    Author     : leon
+    Description:
+        Css for example 3.
+*/
+
+body{
+    background-color: bisque;
+}
+
+#console,
+#e3console{
+    background-color: white;
+    border: black dashed 1px;
+}
+
+#e3console{
+    border-width: 2px;
+    border-color: greenyellow;
+    font-size: 12px;
+    background-color: #333;
+    color: greenyellow;
+    padding: 5px;
+}
+
