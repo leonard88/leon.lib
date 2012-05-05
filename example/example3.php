@@ -19,13 +19,17 @@
     //static function add($msg, $title = "warning", $post_sign = "!", $pre_sign = "",
     //$html_class = "title")
     leon\lib\Console::add("test1");
+    //title/type of the message
     leon\lib\Console::add("test2", "testtitle");
     
     //set the username (application name or application acronym)
     leon\lib\Console::setUser("e3");//example3 acronym
 
+    //the end of the message: '.'
     leon\lib\Console::add("test3", "testtitle", ".");
+    //the begin of the message: '#'
     leon\lib\Console::add("test4", "testtitle", ".", "#");
+    //the css class of the message: 'testclass'
     leon\lib\Console::add("test5", "testtitle", ".", "#", "testclass");
     
 
