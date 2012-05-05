@@ -31,5 +31,5 @@
     echo "</pre>";
     
     //Example 1 shows require_once - init.
-    //Example 3 ...
+    //Example 3: How to use leon.lib.Console
 ?>
