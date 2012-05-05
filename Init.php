@@ -21,7 +21,7 @@ class Init {
      * Verbose messages.
      * @var bool 
      */
-    private static $_verbose = false;
+    private static $_verbose = true;
     
     /**
      * Is leon.lib ready for usage?
@@ -44,7 +44,7 @@ class Init {
     }
     
     private function loader($class_name){
-        require_once dirname(__FILE__) . "/lib/" . array_pop(explode("\\", $class_name)) . ".php";
+        require_once __DIR__ . "/lib/" . array_pop(explode("\\", $class_name)) . ".php";
     }
     
     /**
