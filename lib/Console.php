@@ -48,18 +48,18 @@ class Console {
         for ($i = 0; $i < (int)$tabs; $i++) $ts2 .= "\t";
         
         if (self::$_msgs == ""){
-            if ($visible_no_output_msg) return "$ts2<div id=\"$html_id\">\n{$ts}No console output\n$ts2</div>"; 
-            else return "<!--No console output-->";
+            if ($visible_no_output_msg) return "$ts2<div id=\"$html_id\">\n{$ts}No console output\n$ts2</div>$ending"; 
+            else return "<!--No console output-->$ending";
         }
         
         if ($output_condition1) return $output_condition1 == $output_condition2 
-            ? "$ts2<div id=\"$html_id\">\n$ts" . str_replace("\n", "\n$ts", self::$_msgs) . "\n$ts2</div>"
+            ? "$ts2<div id=\"$html_id\">\n$ts" . str_replace("\n", "\n$ts", self::$_msgs) . "\n$ts2</div>$ending"
             : ($visible_no_output_msg 
-                ? "$ts2<div id=\"$html_id\">\n$ts$else_msg\n$ts2</div>"
-                : "<!--$else_msg-->"
+                ? "$ts2<div id=\"$html_id\">\n$ts$else_msg\n$ts2</div>$ending"
+                : "<!--$else_msg-->$ending"
             ); 
          
-        return "$ts2<div id=\"$html_id\">\n$ts" . str_replace("\n", "\n$ts", self::$_msgs) . "\n$ts2</div>";
+        return "$ts2<div id=\"$html_id\">\n$ts" . str_replace("\n", "\n$ts", self::$_msgs) . "\n$ts2</div>$ending";
     }
     
     static function add($msg, $title = "warning", $post_sign = "!", $pre_sign = "", $html_class = "title"){
