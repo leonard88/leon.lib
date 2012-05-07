@@ -33,3 +33,24 @@
     //Example 1 shows require_once - init.
     //Example 3: How to use leon.lib.Console
 ?>
+
+
+<?php
+    //navigation
+    $uri = explode("/", $_SERVER["REQUEST_URI"]);
+    $index = str_replace(array("example", ".php"), "", $uri[count($uri) - 1]);
+
+    $uri[count($uri) - 1] = "";
+    $uri = implode("/", $uri);
+
+    $next = $uri . "example" . ($index + 1) . ".php";
+    if (!file_exists(__DIR__."\\example" . ($index + 1) . ".php")) $next = $uri;
+    
+    $previous = $uri . "example" . ($index - 1) . ".php";
+    if ($index == 1) $previous = "";
+    
+    echo "<br /><br /><br />";
+    echo "<nav>";
+    echo "<a href=\"" . $uri . "\">examples</a>: <a href=\"$previous\">" . htmlspecialchars("<<") . "previous</a> | <a href=\"$next\">next" . htmlspecialchars(">>") . "</a>";
+    echo "</nav>";
+?>
