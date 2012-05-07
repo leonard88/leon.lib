@@ -1,6 +1,6 @@
 <?php
 /**
- * Description of example2
+ * Description of example3
  * created on 2012.05.03.
  * @author leon
  * 
@@ -34,12 +34,13 @@
     
 
     //Example 2 shows an auto-loader solution.
-    //Example 4 ...
+    //Example 4 shows how to use leon\lib\Base::redirect()
 ?>
 <!DOCTYPE hmtl>
 <html>
     <head>
         <title>Example 3 - How to use leon.lib.Console</title>
+        <link rel="stylesheet" href="css/examples.css">
         <link rel="stylesheet" href="css/example3.css">
     </head>
     <body>
@@ -73,7 +74,7 @@
             //setting another id for console - use in css/example3.css
             echo leon\lib\Console::out($test_cond1, $test_cond2, "Don't need else message", 2, "e3console"); 
             
-            echo "<br />\nError message will be shown because of the uncompleted condition\n";
+            echo "<br />\nError message (because of the uncompleted condition) will be shown\n";
             //Lets show the error message - not in comment
             echo leon\lib\Console::out($test_cond1, "", "Another visible error message because of the uncompleted condition", 2, "e3console", true);
             
@@ -87,6 +88,27 @@
             echo "<br />\nNo output msg\n";
             //will show : no output
             echo leon\lib\Console::out($test_cond1, $test_cond2, "Don't need else message", 2, "e3console", true); 
+        ?>
+        
+        <?php
+            //navigation
+            $uri = explode("/", $_SERVER["REQUEST_URI"]);
+            $index = str_replace(array("example", ".php"), "", $uri[count($uri) - 1]);
+
+            $uri[count($uri) - 1] = "";
+            $uri = implode("/", $uri);
+
+            
+            $next = $uri . "example" . ($index + 1) . ".php";
+            if (!file_exists(__DIR__."\\example" . ($index + 1) . ".php")) $next = $uri;
+            
+            $previous = $uri . "example" . ($index - 1) . ".php";
+            if ($index == 1) $previous = "";
+            
+            echo "<br /><br /><br />";
+            echo "<nav>";
+            echo "<a href=\"" . $uri . "\">examples</a>: <a href=\"$previous\">" . htmlspecialchars("<<") . "previous</a> | <a href=\"$next\">next" . htmlspecialchars(">>") . "</a>";
+            echo "</nav>";
         ?>
     </body>
 </html>
