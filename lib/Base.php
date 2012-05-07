@@ -13,6 +13,12 @@ namespace leon\lib;
 class Base {
     
     /**
+     * URL of the address of redirection.
+     * @var string 
+     */
+    public static $URL = "leon88.com";
+    
+    /**
      * Inserts a $value into the $array at the $position. The old values will be
      * shifted by one index.
      * @param array $array the input array (old array)
@@ -53,6 +59,16 @@ class Base {
         }
         else if ($param) $obj->$method($param);
         else $obj->$method();
+    }
+    
+    /**
+     * Redirects the page to a given URL+URI. 
+     * If you want to specify the url set the self::$URL (without http://). 
+     * @param string $uri 
+     */
+    static function redirect($uri = ""){
+        header("location: http://" . self::$URL . "/" . $uri);
+        exit;
     }
 }
 
